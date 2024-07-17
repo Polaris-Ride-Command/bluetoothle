@@ -38,7 +38,8 @@ namespace Plugin.BluetoothLE.Server
             }
             nativeService.Characteristics = chlist.ToArray();
 
-            Debug.WriteLine($"STATE: {this.manager.State} - AUTH: {CBPeripheralManager.AuthorizationStatus}");
+            //Debug.WriteLine($"STATE: {this.manager.State} - AUTH: {CBPeripheralManager.AuthorizationStatus}");
+            Debug.WriteLine($"STATE: {this.manager.State} - AUTH: {CBPeripheralManager.Authorization}");
             this.manager.ServiceAdded += (sender, args) =>
             {
                 if (args.Error != null)

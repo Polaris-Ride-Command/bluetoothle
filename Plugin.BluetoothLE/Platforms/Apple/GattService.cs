@@ -45,10 +45,12 @@ namespace Plugin.BluetoothLE
                         ob.OnCompleted();
                 });
                 var uuids = characteristicIds.Select(x => x.ToCBUuid()).ToArray();
-                this.Peripherial.DiscoveredCharacteristic += handler;
+                //this.Peripherial.DiscoveredCharacteristic += handler;
+                this.Peripherial.DiscoveredCharacteristics += handler;
                 this.Peripherial.DiscoverCharacteristics(uuids, this.Service);
 
-                return () => this.Peripherial.DiscoveredCharacteristic -= handler;
+                //return () => this.Peripherial.DiscoveredCharacteristic -= handler;
+                return () => this.Peripherial.DiscoveredCharacteristics -= handler;
             });
 
 
@@ -75,10 +77,12 @@ namespace Plugin.BluetoothLE
                     }
                     ob.OnCompleted();
                 });
-                this.Peripherial.DiscoveredCharacteristic += handler;
+                //this.Peripherial.DiscoveredCharacteristic += handler;
+                this.Peripherial.DiscoveredCharacteristics += handler;
                 this.Peripherial.DiscoverCharacteristics(this.Service);
 
-                return () => this.Peripherial.DiscoveredCharacteristic -= handler;
+                //return () => this.Peripherial.DiscoveredCharacteristic -= handler;
+                return () => this.Peripherial.DiscoveredCharacteristics -= handler;
             });
 
 

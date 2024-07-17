@@ -1,91 +1,84 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.29">
-
-    <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;monoandroid81;monoandroid90;xamarinios10;xamarinmac20;xamarin.TVOS10</TargetFrameworks>
-        <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">uap10.0.16299;$(TargetFrameworks)</TargetFrameworks>
-        <Authors>aritchie</Authors>
-        <Company />
-        <AssemblyName>Plugin.BluetoothLE</AssemblyName>
-        <RootNamespace>Plugin.BluetoothLE</RootNamespace>
-        <Description>ACR Bluetooth LE Reactive Plugin for Xamarin and Windows
+﻿<!--<Project Sdk="MSBuild.Sdk.Extras/2.0.29">-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!--<TargetFrameworks>netstandard2.0;monoandroid81;monoandroid90;xamarinios10;xamarinmac20;xamarin.TVOS10</TargetFrameworks>-->
+    <TargetFrameworks>net8.0;net8.0-ios;net8.0-android</TargetFrameworks>
+    <!--<TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">uap10.0.16299;$(TargetFrameworks)</TargetFrameworks>-->
+    <Authors>aritchie</Authors>
+    <Company />
+    <AssemblyName>Plugin.BluetoothLE.Compat</AssemblyName>
+    <RootNamespace>Plugin.BluetoothLE</RootNamespace>
+    <Description>ACR Bluetooth LE Reactive Plugin for MAUI
 
 Supported Platforms
-* .NET Standard
-* Android 4.3+
-* iOS 7+
-* tvOS
-* macOS
-* UWP</Description>
-        <Product>$(AssemblyName) ($(TargetFramework))</Product>
-        <PackageVersion>6.2.6</PackageVersion>
-        <RepositoryUrl>https://github.com/aritchie/bluetoothle</RepositoryUrl>
-        <PackageProjectUrl>https://github.com/aritchie/bluetoothle</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/aritchie/bluetoothle/blob/master/LICENSE.md</PackageLicenseUrl>
-        <PackageIconUrl>https://github.com/aritchie/bluetoothle/raw/master/icon.png</PackageIconUrl>
-        <PackageReleaseNotes>https://github.com/aritchie/bluetoothle/blob/master/docs/changelog.md</PackageReleaseNotes>
-        <PackageTags>ios android uwp windows tvos mac macos xamarin rx reactive ble bluetooth bluetoothle gattserver advertising</PackageTags>
-
-        <RepositoryType>git</RepositoryType>
-        <IncludeSymbols>True</IncludeSymbols>
-        <IncludeSource>True</IncludeSource>
-        <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <EmbedUntrackedSources>true</EmbedUntrackedSources>
-        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <DebugType>full</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DebugType>pdbonly</DebugType>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
-        <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
-        <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
-    </PropertyGroup>
-
-    <ItemGroup Condition=" '$(OS)' == 'Windows_NT' AND '$(Configuration)' == 'Release' ">
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Compile Remove="Platforms\**\*.cs" />
-        <None Include="Platforms\**\*.cs" />
-        <None Remove="Platforms\Uwp\Platform.cs" />
-        <PackageReference Include="System.Reactive" Version="4.1.5" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
-        <Compile Include="Platforms\Android\**\*.cs" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarinios')) ">
-        <Compile Include="Platforms\Apple\**\*.cs" />
-        <Compile Include="Platforms\iOS\**\*.cs" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarinmac')) ">
-        <Compile Include="Platforms\Apple\**\*.cs" />
-        <Compile Include="Platforms\macOS\**\*.cs" />
-        <PackageReference Include="System.ValueTuple" Version="4.3.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.TVOS')) ">
-        <Compile Include="Platforms\Apple\**\*.cs" />
-        <Compile Include="Platforms\tvOS\**\*.cs" />
-        <Compile Remove="Platforms\Apple\Server\**\*.cs" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
-        <Compile Include="Platforms\Uwp\**\*.cs" />
-        <EmbeddedResource Include="Platforms\Uwp\Plugin.BluetoothLE.rd.xml" />
-    </ItemGroup>
-
-    <!--
+* .NET 8
+* Android
+* iOS
+</Description>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <PackageVersion>7.0.0</PackageVersion>
+    <RepositoryUrl>https://github.com/aritchie/bluetoothle</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/aritchie/bluetoothle</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/aritchie/bluetoothle/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageIconUrl>https://github.com/aritchie/bluetoothle/raw/master/icon.png</PackageIconUrl>
+    <PackageReleaseNotes>https://github.com/aritchie/bluetoothle/blob/master/docs/changelog.md</PackageReleaseNotes>
+    <PackageTags>ios android uwp windows tvos mac macos xamarin rx reactive ble bluetooth bluetoothle gattserver advertising</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeSource>True</IncludeSource>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+<!--  <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
+    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+  </PropertyGroup>-->
+<!--  <ItemGroup Condition=" '$(OS)' == 'Windows_NT' AND '$(Configuration)' == 'Release' ">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
+  </ItemGroup>-->
+  <ItemGroup>
+    <Compile Remove="Platforms\**\*.cs" />
+    <None Include="Platforms\**\*.cs" />
+    <None Remove="Platforms\Uwp\Platform.cs" />
+    <PackageReference Include="System.Reactive" Version="4.1.5" />
+  </ItemGroup>
+  <!--<ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
+    <Compile Include="Platforms\Android\**\*.cs" />
+  </ItemGroup>-->
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0-android')) ">
+    <Compile Include="Platforms\Android\**\*.cs" />
+  </ItemGroup>
+  <!--<ItemGroup Condition=" $(TargetFramework.StartsWith('xamarinios')) ">
+    <Compile Include="Platforms\Apple\**\*.cs" />
+    <Compile Include="Platforms\iOS\**\*.cs" />
+  </ItemGroup>-->
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0-ios')) ">
+    <Compile Include="Platforms\Apple\**\*.cs" />
+    <Compile Include="Platforms\iOS\**\*.cs" />
+  </ItemGroup>
+  <!--<ItemGroup Condition=" $(TargetFramework.StartsWith('xamarinmac')) ">
+    <Compile Include="Platforms\Apple\**\*.cs" />
+    <Compile Include="Platforms\macOS\**\*.cs" />
+  </ItemGroup>-->
+  <!--<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.TVOS')) ">
+    <Compile Include="Platforms\Apple\**\*.cs" />
+    <Compile Include="Platforms\tvOS\**\*.cs" />
+    <Compile Remove="Platforms\Apple\Server\**\*.cs" />
+  </ItemGroup>-->
+  <!--<ItemGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
+    <Compile Include="Platforms\Uwp\**\*.cs" />
+    <EmbeddedResource Include="Platforms\Uwp\Plugin.BluetoothLE.rd.xml" />
+  </ItemGroup>-->
+  <!--
     <ItemGroup Condition=" $(TargetFramework.StartsWith('net')) ">
         <Compile Include="Platforms\NETFramework\**\*.cs" />
         <PackageReference Include="Tmds.DBus" Version="0.5.0" />

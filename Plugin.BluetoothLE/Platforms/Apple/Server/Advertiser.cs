@@ -21,7 +21,8 @@ namespace Plugin.BluetoothLE.Server
             if (this.manager.Advertising)
                 return;
 
-            if (this.manager.State != CBPeripheralManagerState.PoweredOn)
+            //if (this.manager.State != CBPeripheralManagerState.PoweredOn)
+            if (this.manager.State != CBManagerState.PoweredOn)
                 throw new ArgumentException("Perhipheral not ready");
 
             this.DoAdvertise(adData);

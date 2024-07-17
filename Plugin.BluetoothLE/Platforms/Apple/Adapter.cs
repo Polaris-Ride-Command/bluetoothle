@@ -22,22 +22,28 @@ namespace Plugin.BluetoothLE
             {
                 switch (this.context.Manager.State)
                 {
-                    case CBCentralManagerState.PoweredOff:
+                    //case CBCentralManagerState.PoweredOff:
+                    case CBManagerState.PoweredOff:
                         return AdapterStatus.PoweredOff;
 
-                    case CBCentralManagerState.PoweredOn:
+                    //case CBCentralManagerState.PoweredOn:
+                    case CBManagerState.PoweredOn:
                         return AdapterStatus.PoweredOn;
 
-                    case CBCentralManagerState.Resetting:
+                    //case CBCentralManagerState.Resetting:
+                    case CBManagerState.Resetting:
                         return AdapterStatus.Resetting;
 
-                    case CBCentralManagerState.Unauthorized:
+                    //case CBCentralManagerState.Unauthorized:
+                    case CBManagerState.Unauthorized:
                         return AdapterStatus.Unauthorized;
 
-                    case CBCentralManagerState.Unsupported:
+                    //case CBCentralManagerState.Unsupported:
+                    case CBManagerState.Unsupported:
                         return AdapterStatus.Unsupported;
 
-                    case CBCentralManagerState.Unknown:
+                    //case CBCentralManagerState.Unknown:
+                    case CBManagerState.Unknown:
                     default:
                         return AdapterStatus.Unknown;
                 }
