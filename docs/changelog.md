@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 7.0.0
+* Re-targeted to .NET 8 and renamed assembly/package to Plugin.BluetoothLE.Compat
+* Yanked out all UWP, MacOS, TVOS, Tizen stuff and left just iOS and Android
+
 ## 6.2.6
 * [cleanup] Remove dependency on Acr.Core
 
