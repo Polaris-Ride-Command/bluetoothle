@@ -1,8 +1,10 @@
-# UPDATE - This library is moving to the Shiny Framework at https://github.com/shinyorg/shiny Support will remain until Shiny is out of beta
+## 7/17/24 - The library was retargeted for .NET 8 and focussed to support only the platforms we need for Ride Command: iOS and Android. See commit https://github.com/Polaris-Ride-Command/bluetoothle/commit/4bf5295fd578e92d646b907ae1b32ead0df282d6 for details
+
+### UPDATE - This library is moving to the Shiny Framework at https://github.com/shinyorg/shiny Support will remain until Shiny is out of beta
 
 
 # <img src="icon.png" width="71" height="71"/> ACR Reactive BluetoothLE Plugin
-Easy to use, cross platform, REACTIVE BluetoothLE Plugin for ALL platforms!
+Easy to use, cross platform, REACTIVE BluetoothLE Plugin for ~~ALL~~ some platforms!
 
 ## [SUPPORT THIS PROJECT](https://github.com/aritchie/home)
 
@@ -17,14 +19,14 @@ Platform|Version
 --------|-------
 Android|4.3+
 iOS|7+
-macOS|Latest
-tvOS|Latest
-Windows UWP|16299+
+~~macOS~~|~~Latest~~
+~~tvOS~~|~~Latest~~
+~~Windows UWP~~|~~16299+~~
 
-UWP is still in beta!
-  * Client cannot disconnect
-  * Server WIP
-  * PRs only during beta please!
+~~UWP is still in beta!~~
+  * ~~Client cannot disconnect~~
+  * ~~Server WIP~~
+  * ~~PRs only during beta please!~~
 
 
 ## FEATURES
